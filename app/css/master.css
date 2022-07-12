@@ -1,0 +1,741 @@
+.lds-roller {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+    transform: scale(.45);
+}
+
+.lds-roller div {
+    animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    transform-origin: 40px 40px;
+}
+
+.lds-roller div:after {
+    content: " ";
+    display: block;
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #fff;
+    margin: -4px 0 0 -4px;
+}
+
+.lds-roller div:nth-child(1) {
+    animation-delay: -0.036s;
+}
+
+.lds-roller div:nth-child(1):after {
+    top: 63px;
+    left: 63px;
+}
+
+.lds-roller div:nth-child(2) {
+    animation-delay: -0.072s;
+}
+
+.lds-roller div:nth-child(2):after {
+    top: 68px;
+    left: 56px;
+}
+
+.lds-roller div:nth-child(3) {
+    animation-delay: -0.108s;
+}
+
+.lds-roller div:nth-child(3):after {
+    top: 71px;
+    left: 48px;
+}
+
+.lds-roller div:nth-child(4) {
+    animation-delay: -0.144s;
+}
+
+.lds-roller div:nth-child(4):after {
+    top: 72px;
+    left: 40px;
+}
+
+.lds-roller div:nth-child(5) {
+    animation-delay: -0.18s;
+}
+
+.lds-roller div:nth-child(5):after {
+    top: 71px;
+    left: 32px;
+}
+
+.lds-roller div:nth-child(6) {
+    animation-delay: -0.216s;
+}
+
+.lds-roller div:nth-child(6):after {
+    top: 68px;
+    left: 24px;
+}
+
+.lds-roller div:nth-child(7) {
+    animation-delay: -0.252s;
+}
+
+.lds-roller div:nth-child(7):after {
+    top: 63px;
+    left: 17px;
+}
+
+.lds-roller div:nth-child(8) {
+    animation-delay: -0.288s;
+}
+
+.lds-roller div:nth-child(8):after {
+    top: 56px;
+    left: 12px;
+}
+
+@keyframes lds-roller {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+:root {
+    --theme-bg-1: 10 10 11;
+    --theme-bg-2: 15 15 16;
+    --theme-bg-3: 20 20 22;
+    --theme-bg-4: 25 25 26;
+    --theme-tx-1: 255 255 255;
+}
+
+body {
+    background: rgb(var(--theme-bg-1));
+    color: rgb(var(--theme-tx-1));
+    margin: 0px;
+    padding: 0px;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    --bar-height: calc(2 * 16px);
+}
+
+body.maximized {
+    --bar-height: calc(1.45 * 16px);
+}
+
+.app {
+    margin: 0px;
+    padding: 0px;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.app>.overlay {
+    width: 100vw;
+    height: 100vh;
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 10;
+    user-select: none;
+    pointer-events: none;
+}
+
+.app>.context {
+    width: 100vw;
+    height: 100vh;
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: flex-start;
+    align-items: center;
+    z-index: 1;
+}
+
+.app>.context>.bar {
+    width: 100vw;
+    height: var(--bar-height);
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: flex-start;
+    align-items: center;
+    backdrop-filter: blur(3px);
+    background: linear-gradient(90deg, rgb(var(--bar-dominant-color) / 95%) -100%, rgb(var(--theme-bg-2)) 55%);
+    app-region: drag;
+    position: fixed;
+    z-index: 6;
+    box-shadow: 0px 0px 21px 1px black;
+}
+
+.app>.context>.bar>p.title#client_app_title {
+    font-size: 14px;
+    margin: 0px 0px 0px 7px;
+    padding: 0px;
+    font-weight: 400;
+    font-family: 'Poppins';
+    user-select: none;
+    pointer-events: none;
+}
+
+.app>.context>.ecenes {
+    width: 100vw;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.app>.context>.ecenes>.ecene {
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    height: 0em;
+    visibility: hidden;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.app>.context>.ecenes>.ecene._jCenter {
+    justify-content: center;
+}
+
+
+.app>.context>.ecenes.main>.ecene.main,
+.app>.context>.ecenes.loader>.ecene.loader,
+.app>.context>.ecenes.login>.ecene.login {
+    visibility: visible;
+    z-index: 5;
+    padding: calc(var(--bar-height)) 0px 0px 0px;
+    height: 100%;
+}
+
+/* Login ecene */
+
+.app>.context>.ecenes>.ecene.login>iframe.loginBox {
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    filter: opacity(1);
+    transition: filter .5s ease 1.2s;
+}
+
+.app>.context>.ecenes>.ecene.login>iframe.loginBox.loading {
+    filter: opacity(0);
+}
+
+/* Main */
+
+.app>.context>.ecenes>.ecene.main>.menu {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: flex-end;
+    align-items: center;
+    margin: 0px;
+    padding: 0px;
+}
+
+.app>.context>.ecenes>.ecene.main>.menu>.userbt {
+    width: 4em;
+    height: 100%;
+    position: fixed;
+    margin: 0px;
+    padding: 5em 0px 0px 0px;
+    background: linear-gradient(-90deg, rgb(0 0 0) -130%, transparent 70%);
+    transition: width 1s;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.app>.context>.ecenes>.ecene.main>.menu>.userbt>.box {
+    width: calc(100% - 1em);
+    height: 3em;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: flex-end;
+    background: rgb(var(--theme-bg-2) / 60%);
+    backdrop-filter: blur(4px);
+    border-radius: 4px;
+    box-shadow: 0px 0px 16px -7px black;
+    margin: 7px 0px 7px 0px;
+    padding: 0px;
+}
+
+.app>.context>.ecenes>.ecene.main>.menu>.userbt>.box>p.label {
+    margin: 0px calc(3.45 * 16px) 0px 0px;
+    padding: 0px;
+    position: fixed;
+    z-index: 5;
+    font-size: 13px;
+    font-family: 'Montserrat';
+    font-weight: bold;
+    letter-spacing: .5px;
+    --label-text-color: var(--theme-bg-1);
+    user-select: none;
+    pointer-events: none;
+    text-shadow: 2px 2px 0px rgb(var(--label-text-color)), 0px 0px 18px rgb(0 0 0 / 85%);
+    transition: margin .5s, filter .5s;
+    width: fit-content;
+    height: fit-content;
+    text-align: right;
+    filter: opacity(0.6);
+}
+
+.app>.context>.ecenes>.ecene.main>.menu>.userbt>.box:hover>p.label {
+    margin: 0px calc(3.6 * 16px) 0px 0px;
+    filter: opacity(1);
+}
+
+.app>.context>.ecenes>.ecene.main>.menu>.userbt>.box>.blb {
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.app>.context>.ecenes>.ecene.main>.menu>.userbt>.box>.blb>svg {
+    filter: drop-shadow(0px 0px 7px rgb(255 255 255 / 80%)) drop-shadow(2px 2px 0px rgb(0 0 0 / 85%));
+    width: calc(100% - 1.7em);
+    height: calc(100% - 1.7em);
+}
+
+.app._exported>.context>.ecenes>.ecene.main>.menu>.userbt>.box img {
+    user-select: none;
+    pointer-events: none;
+}
+
+.app>.context>.ecenes>.ecene.main>.menu>.userbt>.box img.full {
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    object-fit: cover;
+}
+
+.app>.context>.ecenes>.ecene.main>.menu>.userbt>.box img.circle {
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.app>.context>.ecenes>.ecene.main>.menu>.userbt>.box.trns {
+    background: rgb(var(--theme-bg-2) / 0%);
+    backdrop-filter: blur(0px);
+    border-radius: 0px;
+    box-shadow: 0px 0px 0px 0px;
+}
+
+.app>.context>.ecenes>.ecene.main>.menu>div.userece#client_app_context_main_userece {
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: flex-start;
+    align-items: center;
+    filter: opacity(1);
+}
+
+.app>.context>.ecenes>.ecene.main>.menu>div.userece#client_app_context_main_userece.hide {
+    filter: opacity(0);
+    user-select: none;
+    pointer-events: none;
+}
+
+.app>.context>.ecenes>.ecene.main>.menu>div.userece#client_app_context_main_userece.main>.ec.main {
+    overflow: hidden visible;
+    height: 100%;
+    min-height: 100%;
+    max-height: 100%;
+}
+
+.app>.context>.ecenes>.ecene.main>.menu>div.userece#client_app_context_main_userece.user>.ec.user, .app>.context>.ecenes>.ecene.main>.menu>div.userece#client_app_context_main_userece.main>.ec.main {
+    height: 100%;
+    visibility: visible;
+    user-select: none;
+    pointer-events: stroke;
+}
+
+.app>.context>.ecenes>.ecene.main>.menu>div.userece#client_app_context_main_userece>.ec {
+    width: 100%;
+    height: 0%;
+    visibility: hidden;
+    user-select: none;
+    pointer-events: none;
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.app>.context>.ecenes>.ecene.main>.menu>.userece>.ec>.banner {
+    width: 100%;
+    --banner-height: 25em;
+    transition: height 1s;
+    height: var(--banner-height);
+    min-height: var(--banner-height);
+    max-height: var(--banner-height);
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: flex-start;
+    align-items: center;
+    overflow: hidden;
+}
+
+@media (min-height: 450px) {
+    .app>.context>.ecenes>.ecene.main>.menu>.userece>.ec>.banner {
+        --banner-height: 20em;
+    }
+}
+
+@media (min-height: 475px) {
+    .app>.context>.ecenes>.ecene.main>.menu>.userece>.ec>.banner {
+        --banner-height: 22em;
+    }
+}
+
+@media (min-height: 500px) {
+    .app>.context>.ecenes>.ecene.main>.menu>.userece>.ec>.banner {
+        --banner-height: 23em;
+    }
+}
+
+@media (min-height: 525px) {
+    .app>.context>.ecenes>.ecene.main>.menu>.userece>.ec>.banner {
+        --banner-height: 25em;
+    }
+}
+
+@media (min-height: 550px) {
+    .app>.context>.ecenes>.ecene.main>.menu>.userece>.ec>.banner {
+        --banner-height: 27em;
+    }
+}
+
+
+.app>.context>.ecenes>.ecene.main>.menu>.userece>.ec>.banner>.overlay>h2 {
+    font-size: 2.4em;
+    margin: 0px;
+    padding: 0px;
+    font-weight: 300;
+    font-family: 'Montserrat';
+    letter-spacing: 15px;
+    transition: letter-spacing 10s ease .25s;
+    text-shadow: 0px 2px 2px black, 0px 0px 4px black;
+}
+
+.app>.context>.ecenes>.ecene.main>.menu>.userece.main>.ec>.banner>.overlay>h2 {
+    letter-spacing: 7px;
+}
+
+.app>.context>.ecenes>.ecene.main>.menu>.userece>.ec>.banner>.overlay {
+    width: 100%;
+    height: var(--banner-height);
+    min-height: var(--banner-height);
+    transition: height 1s;
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    user-select: none;
+    pointer-events: none;
+    transition: background 1s ease .25s;
+    background: rgb(var(--theme-bg-1) / 100%);
+}
+
+.app>.context>.ecenes>.ecene.main>.menu>.userece.main>.ec>.banner>.overlay {
+    background: rgb(var(--theme-bg-1) / 25%);
+}
+
+.app>.context>.ecenes>.ecene.main>.menu>.userece>.ec>.banner>.background {
+    width: 100%;
+    height: var(--banner-height);
+    min-height: var(--banner-height);
+    margin: calc(var(--banner-height) * -1) 0px 0px 0px;
+    transition: height 1s, margin .7s;
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    z-index: 0;
+    user-select: none;
+    pointer-events: none;
+}
+
+.app>.context>.ecenes>.ecene.main>.menu>.userece>.ec>.banner>.background>video {
+    width: 100%;
+    height: 175%;
+    object-fit: cover;
+    margin: 0px;
+    padding: 0px;
+    user-select: none;
+    pointer-events: none;
+}
+
+.app>.context>.ecenes>.ecene.main>.menu>.userece>.ec>div.launchZone#client_app_context_main_launch_zone {
+    width: 100%;
+    min-height: 4em;
+    max-height: 4em;
+    height: 4em;
+    overflow: hidden;
+    margin: -2em 0px 0px 0px;
+    z-index: 5;
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.app>.context>.ecenes>.ecene.main>.menu>.userece>.ec>div.launchZone#client_app_context_main_launch_zone>button#client_app_context_main_launch_button {
+    font-size: 21px;
+    --use-color: 25 114 120;
+}
+
+.app>.context>.ecenes>.ecene.main>.menu>.userece>.ec>div.launchZone#client_app_context_main_launch_zone>button#client_app_context_main_launch_button.noClic {
+    --use-color: 40 61 59;
+}
+
+.app>.context>.ecenes>.ecene.main>.menu>.userece>.ec>div.launchZone#client_app_context_main_launch_zone>button#client_app_context_main_launch_button>p#client_app_context_main_launch_button_text {
+    font-size: 23px;
+    font-family: 'VT323';
+    letter-spacing: 3px;
+    text-shadow: 2px 2px 0px black;
+    text-transform: uppercase;
+}
+
+
+/* Main ecene sub user ecene */
+
+.app>.context>.ecenes>.ecene.main>.menu>div.userece#client_app_context_main_userece>.ec.user>.account_section {
+    width: calc(100% - 2em);
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 16px 0px 0px 0px;
+    padding: 5px 0px 15px 0px;
+    background: linear-gradient(150deg, rgb(var(--brand-color)) -80%, rgb(var(--theme-bg-2)));
+    border-radius: 7px;
+}
+
+.app>.context>.ecenes>.ecene.main>.menu>div.userece#client_app_context_main_userece>.ec.user>.account_section>h2 {
+    margin: .5em 0px 9px 0em;
+    padding: 0px;
+    font-weight: 300;
+    font-family: 'Montserrat';
+}
+
+.app>.context>.ecenes>.ecene.main>.menu>div.userece#client_app_context_main_userece>.ec.user>.account_section>.discord_user_brand {
+    font-size: 20px;
+    user-select: none;
+    pointer-events: none;
+}
+
+
+.app>.context>.ecenes>.ecene.main>.menu>.userece>.ec>.allGsections {
+    width: 100%;
+    min-height: 20em;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 5em 0px 0px 0px;
+    padding: 0px;
+}
+
+.app>.context>.ecenes>.ecene.main>.menu>.userece>.ec>.allGsections>.sections {
+    width: 100%;
+    height: fit-content;
+    padding: 0px;
+    margin: 5px 0px 5px 0px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.app>.context>.ecenes>.ecene.main>.menu>.userece>.ec>.allGsections>.sections>.top {
+    width: 100%;
+    height: fit-content;
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.app>.context>.ecenes>.ecene.main>.menu>.userece>.ec>.allGsections>.sections>.top>*{
+    margin: 0px;
+    padding: 0px;
+}
+
+.app>.context>.ecenes>.ecene.main>.menu>.userece>.ec>.allGsections>.sections>.top>h2.title {
+    margin: 5px 0px 10px 0px;
+    padding: 0px;
+}
+
+.app>.context>.ecenes>.ecene.main>.menu>.userece>.ec>.allGsections>.sections>.body {
+    width: 100%;
+    height: fit-content;
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.app>.context>.ecenes>.ecene.main>.menu>.userece>.ec>.allGsections>.sections>.body .subsections_t_two {
+    width: 100%;
+    height: fit-content;
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.app>.context>.ecenes>.ecene.main>.menu>.userece>.ec>.allGsections>.sections>.body .subsections_t_two>.subsections,
+.app>.context>.ecenes>.ecene.main>.menu>.userece>.ec>.allGsections>.sections>.body .subsections {
+    width: 100%;
+    height: fit-content;
+    margin: 0px;
+    padding: 10px 0px 0px 0px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.app>.context>.ecenes>.ecene.main>.menu>.userece>.ec>.allGsections>.sections>.body .subsections_t_two>.subsections>.section, .app>.context>.ecenes>.ecene.main>.menu>.userece>.ec>.allGsections>.sections>.body .subsections>.section {
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.app>.context>.ecenes>.ecene.main>.menu>.userece>.ec>.allGsections>.sections>.body .subsections_t_two>.subsections>.section>.top, .app>.context>.ecenes>.ecene.main>.menu>.userece>.ec>.allGsections>.sections>.body .subsections>.section>.top {
+    width: 100%;
+    height: fit-content;
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.app>.context>.ecenes>.ecene.main>.menu>.userece>.ec>.allGsections>.sections>.body .subsections_t_two>.subsections>.section>.body, .app>.context>.ecenes>.ecene.main>.menu>.userece>.ec>.allGsections>.sections>.body .subsections>.section>.body {
+    width: 100%;
+    height: fit-content;
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: flex-start;
+    align-items: center;
+}

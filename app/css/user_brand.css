@@ -1,0 +1,309 @@
+.discord_user_brand {
+    width: calc(100% - 2em);
+    height: 7em;
+    min-height: 7em;
+    min-width: 20em;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: flex-start;
+    align-items: center;
+    background: rgb(var(--theme-bg-3));
+    color: rgb(var(--theme-tx-1));
+    border-radius: 5px;
+}
+
+body>.boxUp>.box>div.render>.discord_user_brand.min {
+    font-size: .8em;
+    width: calc(100% - 5em);
+    max-width: 30em;
+    min-height: 5.6em;
+    min-width: 15em;
+    height: 7em;
+}
+
+.discord_user_brand>.banner {
+    width: 100%;
+    min-height: 3em;
+    max-height: 3em;
+    height: 3em;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    background: rgb(var(--user-brand-color));
+}
+
+.discord_user_brand.min>.banner {
+    min-height: 3em;
+    max-height: 3em;
+    height: 3em;
+}
+
+.discord_user_brand>.banner>img {
+    filter: blur(1vw);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scale(1.45);
+}
+
+.discord_user_brand.min>.banner>img {
+    filter: blur(1em);
+    transform: scale(1.5);
+}
+
+.discord_user_brand>.user {
+    width: 100%;
+    height: 100%;
+    margin: -26px 0px 0px 0px;
+    padding: 0px 0px 0px 1em;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: flex-start;
+    z-index: 3;
+}
+
+.discord_user_brand>.user>.line {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 0px;
+    padding: 0px;
+}
+
+.discord_user_brand>.user>.line>img.avatar {
+    width: 4em;
+    height: 4em;
+    margin: 0px;
+    padding: 0px;
+    border-radius: 50%;
+    border: solid 5px rgb(var(--theme-bg-3));
+}
+
+.discord_user_brand.min>.user>.line>img.avatar {
+    border-width: 3px;
+}
+
+.discord_user_brand>.user>.line>h2 {
+    margin: 0px 0px 0px 9px;
+    padding: 0px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    font-family: 'Poppins';
+    font-weight: 400;
+    font-size: 1em;
+}
+
+.discord_user_brand.min>.user>.line>h2 {
+    font-size: 1em;
+    margin-bottom: -4px;
+}
+
+.discord_user_brand>.user>.line>h2>* {
+    margin: 0px;
+    padding: 0px;
+}
+
+.discord_user_brand>.user>.line>h2>p.ud {
+    font-weight: 400;
+    color: rgb(var(--theme-tx-1) / 65%);
+}
+
+.discord_user_brand.min>.user>.line>h2>p.ud {
+    font-weight: 400;
+    color: rgb(var(--theme-tx-1) / 75%);
+}
+
+.welcomeBack {
+    width: calc(100%);
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: flex-start;
+    align-items: center;
+    border-radius: 6px;
+    margin: 0px;
+    padding: 0.7em 0px 0px 0px;
+    transition: width .25s, height .25s, background 1s;
+}
+
+@media (min-width: 700px) {
+    .welcomeBack {
+        width: calc(100% - 1em);
+        height: fit-content;
+        margin-top: 1.5em;
+    }
+}
+
+.welcomeBack>.avatar {
+    width: 15em;
+    height: 15em;
+    min-width: 15em;
+    min-height: 15em;
+    margin: 0px;
+    padding: 0px;
+    border-radius: 50%;
+    background: rgb(var(--theme-bg-4));
+    border: solid 2px rgb(var(--theme-bg-4));
+    transition: background 1s;
+    overflow: hidden;
+    box-shadow: 0px 0px 40px -26px black;
+}
+
+.welcomeBack>.avatar>img {
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    border: none;
+    object-fit: cover;
+    filter: opacity(1);
+    transition: filter .5s;
+}
+
+.welcomeBack>.avatar.loading {
+    background: rgb(var(--theme-bg-4) / 0%);
+    animation: loading_2 2s infinite;
+}
+
+.welcomeBack>.avatar.loading>img {
+    filter: opacity(0);
+    user-select: none;
+    pointer-events: none;
+}
+
+@keyframes loading_2 {
+    0% {
+        background: rgb(var(--theme-bg-4) / 50%);
+    }
+
+    25% {
+        background: rgb(var(--theme-bg-4) / 70%);
+    }
+
+    50% {
+        background: rgb(var(--theme-bg-4) / 90%);
+    }
+
+    75% {
+        background: rgb(var(--theme-bg-4) / 70%);
+    }
+
+    100% {
+        background: rgb(var(--theme-bg-4) / 50%);
+    }
+}
+
+.welcomeBack>p.name {
+    width: fit-content;
+    height: fit-content;
+    margin: 1em 0px 0px 0px;
+    padding: 0px;
+    font-size: 1.5em;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 200;
+    font-family: 'Montserrat';
+}
+
+.welcomeBack>h3.goPlay {
+    margin: .25em 0px .75em 0px;
+    padding: 0px;
+    font-weight: 100;
+    font-size: 1.3em;
+}
+
+.welcomeBack>button {
+    min-width: 10em;
+    margin: .5em 0px .5em 0px;
+    padding: 5px 0px 5px 0px;
+    background: #4ea8de;
+    color: black;
+    font-family: 'Montserrat';
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    border: solid 3px #5390d9;
+    border-radius: 5px;
+    box-shadow: 0px 4px 0px 0px #5390d9;
+    transition: transform 120ms, box-shadow 120ms;
+    font-size: 1em;
+}
+
+.welcomeBack>button:hover {
+    transform: translateY(1px);
+    box-shadow: 0px 2px 0px 0px #5390d9;
+}
+
+.welcomeBack>button:active {
+    transform: translateY(1.5px);
+    box-shadow: 0px .5px 0px 0px #5390d9;
+}
+
+.island_user_brand {
+    width: calc(100% - 1em);
+    height: 7em;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+    pointer-events: none;
+}
+
+.island_user_brand>img.avatar {
+    width: 5em;
+    height: 5em;
+    margin: 0px 1em 0px 0px;
+    padding: 0px;
+    border-radius: 7px;
+    border: solid 2px rgb(var(--user-skin-dominant-color));
+    box-shadow: 0px 0px 24px -6px black;
+}
+
+.island_user_brand>.user {
+    width: 50%;
+    height: 5em;
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.island_user_brand>.user>h2.nsusername {
+    margin: 2px 0px 0px 4px;
+    padding: 0px;
+    font-family: 'Montserrat';
+    letter-spacing: 1px;
+    text-shadow: 0px 0px 2px rgb(0 0 0 / 85%), 1px 1px 0px rgb(var(--user-skin-dominant-color));
+    font-size: 11px;
+}
+
+.island_user_brand>.user>h2.susername {
+        margin: 0px;
+        padding: 0px;
+        font-family: 'Montserrat';
+        letter-spacing: .5px;
+        text-shadow: 0px 0px 6px rgb(0 0 0 / 85%), 2px 2px 0px rgb(var(--user-skin-dominant-color));
+ }       

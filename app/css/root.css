@@ -1,0 +1,47 @@
+button {
+    padding: 1px 8px;
+    margin: 2px 3px;
+    --use-color: var(--theme-bg-4);
+    border: solid 2px rgb(var(--theme-bg-3) / 45%);
+    background: rgb(var(--use-color));
+    border-radius: 3px;
+    color: rgb(var(--theme-tx-1));
+    font-family: 'Poppins';
+    font-size: 16px;
+    font-weight: bold;
+    text-shadow: 0px 0px 13px black, 1px 1px 0px black;
+    box-shadow: 0px 4px 0px 0px rgb(var(--use-color) / 35%), 0px 4px 0px 0px rgb(var(--theme-bg-3));
+    min-width: 10em;
+    height: 2em;
+    transition: transform .1s, box-shadow .1s, background .5s, border .5s, color .5s, font-size .5s, width .5s;
+}
+
+button.noClic {
+    user-select: none;
+    pointer-events: none;
+}
+
+button>p {
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Poppins';
+    font-size: 16px;
+    font-weight: bold;
+    text-shadow: 0px 0px 13px black, 1px 1px 0px black;
+    filter: opacity(1);
+    transition: filter .25s;
+}
+
+button>p.hide {
+    filter: opacity(0);
+}
+
+button:hover {
+    transform: translateY(.5px);
+    box-shadow: 0px 3px 0px 0px rgb(var(--use-color) / 35%), 0px 4px 0px 0px rgb(var(--theme-bg-3));
+}
+
+button:active {
+    transform: translateY(1.35px);
+    box-shadow: 0px 2.5px 0px 0px rgb(var(--use-color) / 35%), 0px 4px 0px 0px rgb(var(--theme-bg-3));
+}

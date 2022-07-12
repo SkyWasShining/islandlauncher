@@ -1,0 +1,350 @@
+.lds-roller {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+    transform: scale(.7);
+}
+
+.lds-roller div {
+    animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    transform-origin: 40px 40px;
+}
+
+.lds-roller div:after {
+    content: " ";
+    display: block;
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #fff;
+    margin: -4px 0 0 -4px;
+}
+
+.lds-roller div:nth-child(1) {
+    animation-delay: -0.036s;
+}
+
+.lds-roller div:nth-child(1):after {
+    top: 63px;
+    left: 63px;
+}
+
+.lds-roller div:nth-child(2) {
+    animation-delay: -0.072s;
+}
+
+.lds-roller div:nth-child(2):after {
+    top: 68px;
+    left: 56px;
+}
+
+.lds-roller div:nth-child(3) {
+    animation-delay: -0.108s;
+}
+
+.lds-roller div:nth-child(3):after {
+    top: 71px;
+    left: 48px;
+}
+
+.lds-roller div:nth-child(4) {
+    animation-delay: -0.144s;
+}
+
+.lds-roller div:nth-child(4):after {
+    top: 72px;
+    left: 40px;
+}
+
+.lds-roller div:nth-child(5) {
+    animation-delay: -0.18s;
+}
+
+.lds-roller div:nth-child(5):after {
+    top: 71px;
+    left: 32px;
+}
+
+.lds-roller div:nth-child(6) {
+    animation-delay: -0.216s;
+}
+
+.lds-roller div:nth-child(6):after {
+    top: 68px;
+    left: 24px;
+}
+
+.lds-roller div:nth-child(7) {
+    animation-delay: -0.252s;
+}
+
+.lds-roller div:nth-child(7):after {
+    top: 63px;
+    left: 17px;
+}
+
+.lds-roller div:nth-child(8) {
+    animation-delay: -0.288s;
+}
+
+.lds-roller div:nth-child(8):after {
+    top: 56px;
+    left: 12px;
+}
+
+@keyframes lds-roller {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+*:focus-visible {
+    outline: rgb(255 255 255 / 65%) solid 2px;
+}
+
+body {
+    --user-color: var(--theme-bg-1);
+    margin: 0px;
+    padding: 0px;
+    width: 100vw;
+    height: 100vh;
+    transition: --user-color .5s;
+    background: rgb(var(--theme-bg-1));
+    font-family: 'Raleway';
+}
+
+.loginUp {
+    width: 100vw;
+    height: -webkit-fill-available;
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(45deg, rgb(var(--theme-bg-1)), rgb(var(--user-color)) 195%);
+    filter: opacity(1);
+    transition: filter .25s, font-size .5s;
+    font-size: 11px;
+    overflow: hidden auto;
+}
+
+
+@media (min-width: 850px) {
+    .loginUp {
+        font-size: 13px;
+        --width-box: 30em;
+    }
+}
+
+
+@media (min-width: 1100px) {
+    .loginUp {
+        --width-box: 30em;
+    }
+}
+
+@media (min-width: 1450px) {
+    .loginUp {
+        --width-box: 30em;
+    }
+}
+
+@media (min-height: 450px) {
+    .loginUp {
+        --height-box: 30em;
+    }
+}
+
+@media (min-height: 500px) {
+    .loginUp {
+        --height-box: 35em;
+    }
+}
+
+@media (min-height: 600px) {
+    .loginUp {
+        --height-box: 40em;
+    }
+}
+
+.loginUp.up {
+    filter: opacity(0);
+}
+
+.loginBox {
+    width: 100vw;
+    height: 100vh;
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.loginUp>.loginBox {
+    width: var(--width-box);
+    height: var(--height-box);
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: flex-start;
+    align-items: center;
+    overflow: hidden;
+    background: linear-gradient(45deg, rgb(var(--user-color)) -200%, rgb(var(--theme-bg-2)));
+    color: rgb(var(--theme-tx-1));
+    border-radius: 5px;
+    box-shadow: 0px 0px 36px -26px black;
+    transition: width .5s, height .5s;
+}
+
+.loginUp>.loginBox>.oftop {
+    width: 100%;
+    height: calc(3 * 16px);
+    margin: 0px;
+    padding: 0px 0px 0px 16px;
+    display: flex;
+    font-size: 11px;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.loginUp>.loginBox>.oftop>h2.title {
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Poppins';
+    font-weight: 500;
+    letter-spacing: .5px;
+}
+
+.loginUp>.loginBox>.box {
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: space-between;
+    align-items: center;
+    transition: transform .25s;
+}
+
+.loginUp>.loginBox>.box>.becene {
+    width: var(--width-box);
+    height: calc((var(--height-box) - (3 * 16px)));
+    min-width: var(--width-box);
+    min-height: calc((var(--height-box) - (3 * 16px)));
+    max-width: var(--width-box);
+    max-height: calc((var(--height-box) - (3 * 16px)));
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    transition: filter .25s;
+    filter: opacity(0);
+    position: fixed;
+    user-select: none;
+    pointer-events: none;
+}
+
+.loginUp>.loginBox>.box.buttons>.becene.buttons,
+.loginUp>.loginBox>.box.loader>.becene.loader,
+.loginUp>.loginBox>.box.logged_render>.becene.logged_render,
+.loginUp>.loginBox>.box.loader_wc>.becene.loader_wc {
+    filter: opacity(1);
+    pointer-events: stroke;
+}
+
+.loginUp>.loginBox>.box p.information {
+    width: 85%;
+    height: fit-content;
+    margin: 0px 0px 16px 0px;
+    padding: 0px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.loginUp>.loginBox>.box .btn {
+    width: calc(100% - 2.2em);
+    height: 3em;
+    display: flex;
+    margin: 0px;
+    padding: 0px 0px 0px 6px;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: flex-start;
+    align-items: center;
+    background: rgb(var(--theme-bg-3));
+    border-radius: 2px;
+    box-shadow: 0px 7px 24px -16px black;
+    transition: transform 1500ms ease-in-out;
+    user-select: none;
+}
+
+.loginUp>.loginBox>.box .btn:hover {
+    transform: scale(.999);
+    box-shadow: 0px 4px 24px -16px black;
+}
+
+.loginUp>.loginBox>.box .btn:active {
+    transform: scale(.995);
+    box-shadow: 0px 0px 24px -14px black;
+}
+
+.loginUp>.loginBox>.box .btn>.icon {
+    width: 2.5em;
+    height: 2.5em;
+    margin: 0px 5px 0px 0px;
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.loginUp>.loginBox>.box .btn>.icon>svg.bi.bi-discord {
+    width: 60%;
+    height: 60%;
+    filter: drop-shadow(0px 0px 7px rgb(255 255 255 / 17%));
+}
+
+.loginUp>.loginBox>.box .btn>p.title {
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: flex-start;
+    align-items: center;
+    width: fit-content;
+    height: fit-content;
+    font-size: 20px;
+    font-family: 'Poppins';
+}
