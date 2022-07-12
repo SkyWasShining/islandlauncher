@@ -1,0 +1,65 @@
+{
+  "name": "theislandproyect.userapp.launchergame",
+  "version": "1.0.0",
+  "description": "Island Proyect Launcher",
+  "main": "index.js",
+  "scripts": {
+    "launch": "electron .",
+    "launch.dev": "electron . --dev-mode",
+    "export": "npm run pack && npm run dist",
+    "pack": "npx electron-builder --dir",
+    "dist": "npx electron-builder"
+  },
+  "build": {
+    "appId": "theislandproyect.userapp.launchergame",
+    "productName": "Island Proyect Launcher",
+    "files": [
+      "node_modules",
+      "app",
+      "index.js"
+    ],
+    "asar": false,
+    "win": {
+      "publisherName": "Island Proyect",
+      "icon": "./icons/icon.ico",
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowElevation": true,
+      "allowToChangeInstallationDirectory": true
+    },
+    "portable": {
+      "artifactName": "islandproyectlauncher.exe"
+    },
+    "directories": {
+      "output": "./dist",
+      "app": "./",
+      "buildResources": "./build/buildResources"
+    }
+  },
+  "author": "SkyWasShining",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^19.0.7",
+    "electron-builder": "^23.1.0",
+    "electron-updater": "^5.0.5"
+  },
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "cors": "^2.8.5",
+    "express": "^4.18.1",
+    "fs": "^0.0.1-security",
+    "minecraft-launcher-core": "^3.16.13",
+    "node-fetch": "^2.6.1",
+    "path": "^0.12.7"
+  }
+}
