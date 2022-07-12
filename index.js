@@ -5,7 +5,39 @@ const web = express(); // crash with app exported wth
 const { app, BrowserWindow, ipcMain, Menu, shell } = require('electron');
 // const { autoUpdater } = require("electron-updater");
 const path = require('path');
+const uaup = require('uaup-js');
 const fs = require('fs');
+const fetch = require('node-fetch');
+
+// const defaultStages = {
+//     Checking: "Checking For Updates!", // When Checking For Updates.
+//     Found: "Update Found!",  // If an Update is Found.
+//     NotFound: "No Update Found.", // If an Update is Not Found.
+//     Downloading: "Downloading...", // When Downloading Update.
+//     Unzipping: "Installing...", // When Unzipping the Archive into the Application Directory.
+//     Cleaning: "Finalizing...", // When Removing Temp Directories and Files (ex: update archive and tmp directory).
+//     Launch: "Launching..." // When Launching the Application.
+// };
+
+// const updateOptions = {
+//     useGithub: true,
+//     gitRepo: "islandlauncher",
+//     gitUsername: "SkyWasShining",
+//     isGitRepoPrivate: false,
+
+//     appName: "Island Proyect Launcher",
+//     appExecutableName: "Island Proyect Launcher.exe",
+//     forceUpdate: false, // {Default is false} [Optional] If the Application should be forced updated.  This will change to true if any errors ocurr while launching.
+//     stageTitles: defaultStages, // {Default is defaultStages} [Optional] Sets the Status Title for Each Stage
+// };
+
+// uaup.Update(updateOptions);
+
+let isUpdateAvalible = uaup.CheckForUpdates(updateOptions);
+if (isUpdateAvalible) {
+    console.log(`update!`);
+};
+
 
 var config = {
     port: 4958,

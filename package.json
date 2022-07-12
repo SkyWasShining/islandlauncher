@@ -60,6 +60,7 @@
     "fs": "^0.0.1-security",
     "minecraft-launcher-core": "^3.16.13",
     "node-fetch": "^2.6.1",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "uaup-js": "^0.0.22"
   }
 }
